@@ -1,0 +1,15 @@
+.blog-container {
+  padding-top:123px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+i.fa-arrow-circle-left{
+  font-size:48px;
+  color:red;
+}
+
+i.fa-arrow-circle-left:hover{
+  cursor: pointer;
+}

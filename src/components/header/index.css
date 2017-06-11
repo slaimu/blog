@@ -1,0 +1,40 @@
+.header {
+  z-index:1;
+  background-color: #5b6e6f;
+  position:fixed;
+  width:100%;
+  height:60px;
+  top:0;
+}
+
+.content {
+  width:88%;
+  text-align: center;
+}
+.right {
+  position:absolute;
+  right:20px;
+  top:13px;
+  width: 28px;
+  height: 22px;
+}
+
+.right i {
+  transform-origin: 50% 50%;
+  animation: jump .5s linear alternate 4;
+}
+.right i:hover{
+  animation:loading 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loading{
+  0% {transform: scale(1) rotate(0deg);}
+  100% {transform: scale(2) rotate(360deg);}
+}
+
+@keyframes jump {
+  0%   {transform: translate(0,0) scale(1,1);}
+  40%  {transform: translate(0,20%) scale(.8,1.6);}
+  100% {transform: translate(0,60%) scale(1.6,.8);}
+}
