@@ -8,20 +8,21 @@ class ShowPage extends Component {
       i,
       isEnd = false,
       List = this.props.List,
+      order = this.props.order,
       selectedValue = parseInt(this.props.page, 10);
     if (!selectedValue) {
       selectedValue = 1;
     }
-    for (i = 6 * (selectedValue - 1); i < (6 * selectedValue) && i < List.length; i += 1) {
+    for (i = 6 * (selectedValue - 1); i < (6 * selectedValue) && i < order.length; i += 1) {
       item_list.push(
-        <Entry href = {this.props.preHref + selectedValue + '/' + i}
-          backgroundImage={List[i].backgroundImage}
-          title={List[i].title}
-          summary={List[i].summary}
-          meta={List[i].meta} key={i} />
+        <Entry href = {this.props.preHref + selectedValue + '/' + order[i]}
+          backgroundImage={List[order[i]].backgroundImage}
+          title={List[order[i]].title}
+          summary={List[order[i]].summary}
+          meta={List[order[i]].meta} key={i} />
       )
     }
-    if (List.length < (6 * selectedValue)) {
+    if (order.length < (6 * selectedValue)) {
       isEnd = true;
     }
     return (

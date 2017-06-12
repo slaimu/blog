@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import BigDataList from './item/'
+import BigDataList, {order} from './item/'
 import ShowPage from '../../components/showPage'
+import DisqusThread from '../../components/disqus'
+
 import './index.css';
 class BigData extends Component {
   render() {
@@ -10,11 +12,14 @@ class BigData extends Component {
       jsx = (
         <div>
           <a href={href}><i className="fa fa-arrow-circle-left"></i></a>
-          {BigDataList[parseInt(this.props.params.entry,10)].detail}
+          {BigDataList[this.props.params.entry].detail}
+          <DisqusThread id={this.props.params.entry}
+                     title={BigDataList[this.props.params.entry].title}
+                     path= {href + '/' + this.props.params.entry}/>
         </div>
       );
     } else {
-      jsx =   <ShowPage List={BigDataList} preHref='#/bigdata/' Page={this.props.params.page} redirectPage='bigdata' />;
+      jsx =   <ShowPage order= {order} List={BigDataList} preHref='#/bigdata/' Page={this.props.params.page} redirectPage='bigdata' />;
     }
     return (
       <div className="blog-container">
